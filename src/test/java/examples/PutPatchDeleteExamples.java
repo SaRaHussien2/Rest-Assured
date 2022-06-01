@@ -1,7 +1,9 @@
 package examples;
 
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.json.simple.JSONObject;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.*;

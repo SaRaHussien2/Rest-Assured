@@ -10,8 +10,10 @@ public class TestLocalAPI {
     @Test
     public void get(){
         baseURI="http://localhost:3000";
-        given().get("/users").then()
-                .statusCode(200).log().all();
+        given().
+            get("/users").
+        then().
+            statusCode(200).log().all();
     }
     @Test
     public void post() {
@@ -21,7 +23,6 @@ public class TestLocalAPI {
         request.put("lastname","mostafa");
         request.put("subject",1);
         baseURI="http://localhost:3000";
-
         given()
             .contentType(ContentType.JSON)
             .accept(ContentType.JSON)
@@ -52,27 +53,25 @@ public class TestLocalAPI {
     @Test
     public void patch() {
         JSONObject request = new JSONObject();
-
         request.put("firstname","yooyoo");
         baseURI="http://localhost:3000";
 
         given()
-                .contentType(ContentType.JSON)
-                .accept(ContentType.JSON)
-                .body(request.toJSONString())
-                .when()
-                .patch("/users/4")
-                .then()
-                .statusCode(200);
+            .contentType(ContentType.JSON)
+            .accept(ContentType.JSON)
+            .body(request.toJSONString())
+        .when()
+            .patch("/users/4")
+        .then()
+            .statusCode(200);
     }
 
     @Test
     public void delete() {
         baseURI="http://localhost:3000";
-
-                when()
-                .delete("/users/4")
-                .then()
-                .statusCode(200);
+        when()
+            .delete("/users/4")
+        .then()
+            .statusCode(200);
     }
 }
